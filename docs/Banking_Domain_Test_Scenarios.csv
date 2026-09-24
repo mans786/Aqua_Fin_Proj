@@ -1,0 +1,30 @@
+Test Scenario ID,Module,Scenario Name,Description,Priority,Preconditions,Expected Result
+SCN-01,Authentication,User login with valid credentials,"Customer enters valid username and password and logs in to the banking portal.",P0,"Customer account exists and is active; internet banking is enabled","User is redirected to dashboard and authentication succeeds"
+SCN-02,Authentication,User login with invalid credentials,"Customer enters wrong username or password.",P0,"Customer account exists","System shows login failure with generic message; no account data exposed"
+SCN-03,Authentication,Account lock after failed attempts,"Customer enters wrong password repeatedly.",P0,"Customer has not reached maximum invalid login attempts","Account is locked and customer is prompted to reset password or contact support"
+SCN-04,Authentication,Session timeout,"User remains idle beyond configured timeout.",P0,"User has logged in previously","Session expires and user is logged out automatically"
+SCN-05,Account Management,View account summary,"User navigates to account overview page.",P0,"Customer has one or more active accounts","All eligible accounts and balances are displayed accurately"
+SCN-06,Account Management,Transaction history viewing,"User views list of transactions for a selected account.",P1,"Customer has transaction history","Transactions are listed in correct date order with status and amount"
+SCN-07,Fund Transfer,Own account transfer,"User transfers money from one account to another within same bank.",P0,"Sufficient balance in source account","Transfer succeeds and both accounts reflect correct balances"
+SCN-08,Fund Transfer,Insufficient funds validation,"User tries to transfer amount above available balance.",P0,"Source account has low balance","Transfer is declined and no balance change occurs"
+SCN-09,Fund Transfer,Third-party fund transfer,"User transfers to an external beneficiary.",P0,"Beneficiary has been added and validated","Transfer is processed, reference ID generated, and confirmation is displayed"
+SCN-10,Fund Transfer,Same amount duplicate payment prevention,"User resubmits same transaction.",P0,"Payment supports idempotency","Only one transaction is processed and duplicate is blocked"
+SCN-11,Beneficiary Management,Add new beneficiary,"User adds a new beneficiary with valid details.",P0,"User is authenticated","Beneficiary is successfully saved and verification is completed"
+SCN-12,Beneficiary Management,Validate beneficiary data,"User enters invalid or blank beneficiary data.",P1,"User is on add beneficiary page","Validation errors are shown and no record is created"
+SCN-13,Cards,Debit card activation,"User activates a new card.",P0,"Card issued and not yet activated","Card is activated and status changes to Active"
+SCN-14,Cards,Card block and unblock,"User temporarily blocks and later unblocks the card.",P1,"Card is active","Card status changes correctly and related transactions are restricted/allowed appropriately"
+SCN-15,Cards,Card transaction dispute,"Customer raises a card dispute for unauthorized transaction.",P0,"Transaction exists and causes dispute","Dispute case is created and status is visible to customer"
+SCN-16,Loans,Apply for personal loan,"Customer submits loan application with valid income and personal details.",P0,"Customer is eligible for loan application","Application is accepted and reference number generated"
+SCN-17,Loans,Loan approval/rejection workflow,"Loan application is reviewed by bank.",P0,"Application is pending review","Approval/rejection is processed based on policy and notification sent"
+SCN-18,Loans,Loan EMI schedule verification,"Customer views repayment schedule after loan approval.",P1,"Loan is approved","EMI schedule and total repayment values are accurate"
+SCN-19,Fraud & Security,High-risk transaction alert,"Transaction exceeds risk threshold or suspicious pattern is detected.",P0,"Transaction matches risk rules","User is prompted for additional verification or transaction is blocked"
+SCN-20,Compliance,Role-based access control,"Different user roles access different modules.",P0,"Multiple users with different roles exist","Users only access allowed features and data"
+SCN-21,Reports & Statements,Download account statement,"Customer downloads monthly statement.",P1,"Statement period selected","Statement is generated and downloaded successfully"
+SCN-22,Notifications,Transaction success notification,"Customer receives notification after payment completion.",P1,"Transaction processed successfully","Email/SMS notification sent with correct transaction reference"
+SCN-23,Admin,User creation and profile update,"Admin creates or updates customer profile.",P1,"Admin has privileged access","Profile is created/updated with valid audit trail"
+SCN-24,Non-Functional,Responsive UI validation,"User accesses portal from various devices and screen sizes.",P1,"Application is running","UI remains usable and no critical fields are hidden or clipped"
+SCN-25,Non-Functional,Accessibility basics,"User tests keyboard navigation and labels.",P1,"Portal is loaded","Core flows can be navigated using keyboard and labels are readable"
+
+
+
+
